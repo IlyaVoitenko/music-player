@@ -4,11 +4,17 @@ const initialState = {
   topSongs: [],
   isError: false,
   isLoading: false,
+  isPlay: false,
 };
 
 export const songsSlice = createSlice({
   name: "songs",
   initialState,
+  reducers: {
+    setIsPlay: (state) => {
+      state.isPlay = !state.isPlay;
+    },
+  },
   extraReducers: {
     [setTopSongs.fulfilled]: (state, action) => {
       state.topSongs = action.payload;
@@ -23,6 +29,6 @@ export const songsSlice = createSlice({
   },
 });
 
-export const {} = songsSlice.actions;
+export const { setIsPlay } = songsSlice.actions;
 
 export default songsSlice.reducer;

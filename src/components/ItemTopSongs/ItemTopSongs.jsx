@@ -1,11 +1,16 @@
 import React from "react";
+import style from "./ItemTopSongs.module.css";
+import NameArtistSong from "./NameArtistSong";
+import AudioPlay from "./AudioPlay";
 
 const ItemTopSongs = ({ song }) => {
-  console.log(song.attributes.previews[0].url);
+  console.log(song.previews[0].url);
+  console.log(song.artistName);
   return (
-    <audio controls>
-      <source src={song.attributes.previews[0].url} />
-    </audio>
+    <div className={style.container}>
+      <AudioPlay pathSong={song.previews[0].url} />
+      <NameArtistSong artistName={song.artistName} nameSong={song.name} />
+    </div>
   );
 };
 
