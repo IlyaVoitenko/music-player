@@ -1,2 +1,2 @@
 export const topSongsListSelector = (state) => state.songs.topSongs;
-export const isPlaySelector = (state) => state.songs.isPlay;
+export const pathMediaSelector = (state) => state.songs.pathMedia;

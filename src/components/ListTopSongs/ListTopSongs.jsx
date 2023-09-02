@@ -8,7 +8,9 @@ const ListTopSongs = () => {
   return (
     <div>
       {listTopSongs.map((song) => {
-        return <ItemTopSongs key={song.id} song={song.attributes} />;
+        return (
+          <ItemTopSongs key={song.id} song={song.attributes} idItem={song.id} />
+        );
       })}
     </div>
   );

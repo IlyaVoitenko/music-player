@@ -3,12 +3,10 @@ import style from "./ItemTopSongs.module.css";
 import NameArtistSong from "./NameArtistSong";
 import AudioPlay from "./AudioPlay";
 
-const ItemTopSongs = ({ song }) => {
-  console.log(song.previews[0].url);
-  console.log(song.artistName);
+const ItemTopSongs = ({ song, idItem }) => {
   return (
     <div className={style.container}>
-      <AudioPlay pathSong={song.previews[0].url} />
+      <AudioPlay pathSong={song.previews[0].url} idItem={idItem} />
       <NameArtistSong artistName={song.artistName} nameSong={song.name} />
     </div>
   );
