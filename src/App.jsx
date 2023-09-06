@@ -1,17 +1,10 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import "./App.css";
-import { setTopSongs } from "./store/thunk";
-import ListTopSongs from "./components/ListTopSongs";
+import Music from "./components/Music";
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(setTopSongs());
-  }, []);
   return (
     <>
-      <ListTopSongs />
+      <Music />
     </>
   );
 }
