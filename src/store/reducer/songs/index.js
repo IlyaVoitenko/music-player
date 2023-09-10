@@ -5,6 +5,7 @@ const initialState = {
   isError: false,
   isLoading: false,
   pathMedia: "",
+  isShowAudioPlayer: false,
 };
 
 export const songsSlice = createSlice({
@@ -13,6 +14,7 @@ export const songsSlice = createSlice({
   reducers: {
     setPathMedia: (state, action) => {
       state.pathMedia = action.payload;
+      state.isShowAudioPlayer = true;
     },
   },
   extraReducers: {
@@ -20,7 +22,7 @@ export const songsSlice = createSlice({
       state.topSongs = action.payload;
       state.isLoading = false;
     },
-    [setTopSongs.panding]: (state) => {
+    [setTopSongs.pending]: (state) => {
       state.isLoading = true;
     },
     [setTopSongs.rejected]: (state) => {
