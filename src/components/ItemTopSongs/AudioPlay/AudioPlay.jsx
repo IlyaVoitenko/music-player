@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { BsPlayFill, BsPauseFill } from "react-icons/bs";
+import { idSelectedSongSelector } from "../../../store/selectors";
 import { handlePlayPauseMusic } from "../../../utils/helpers/player";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const AudioPlay = ({ pathSong }) => {
+const AudioPlay = ({ pathSong, idItem }) => {
   const dispatch = useDispatch();
-  const [isPlay, setIsPlay] = useState(false);
-
+  const idSelectedSong = useSelector(idSelectedSongSelector);
   return (
     <div
-      onClick={() =>
-        handlePlayPauseMusic(dispatch, isPlay, setIsPlay, pathSong)
-      }
+      onClick={() => {
+        handlePlayPauseMusic(dispatch, idItem, pathSong, idSelectedSong);
+      }}
     >
-      <span>{isPlay ? <BsPauseFill /> : <BsPlayFill />} </span>
+      <span>
+        {idSelectedSong === idItem ? <BsPauseFill /> : <BsPlayFill />}{" "}
+      </span>
     </div>
   );
 };

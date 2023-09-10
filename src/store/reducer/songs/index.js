@@ -6,12 +6,16 @@ const initialState = {
   isLoading: false,
   pathMedia: "",
   isShowAudioPlayer: false,
+  idSelectedSong: "",
 };
 
 export const songsSlice = createSlice({
   name: "songs",
   initialState,
   reducers: {
+    setIdSelectedSong: (state, action) => {
+      state.idSelectedSong = action.payload;
+    },
     setPathMedia: (state, action) => {
       state.pathMedia = action.payload;
       state.isShowAudioPlayer = true;
@@ -31,6 +35,6 @@ export const songsSlice = createSlice({
   },
 });
 
-export const { setPathMedia } = songsSlice.actions;
+export const { setPathMedia, setIdSelectedSong } = songsSlice.actions;
 
 export default songsSlice.reducer;
