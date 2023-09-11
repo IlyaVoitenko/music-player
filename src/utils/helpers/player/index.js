@@ -1,4 +1,8 @@
-import { setPathMedia, setIdSelectedSong } from "../../../store/reducer/songs";
+import {
+  setPathMedia,
+  setIdSelectedSong,
+  setIsPlayMusic,
+} from "../../../store/reducer/songs";
 
 export const handlePlayPauseMusic = (
   dispatch,
@@ -8,9 +12,19 @@ export const handlePlayPauseMusic = (
 ) => {
   if (idSelectedSong === "") {
     dispatch(setPathMedia(pathSong));
+    dispatch(setIsPlayMusic());
     return dispatch(setIdSelectedSong(idItem));
   } else {
-    dispatch(setPathMedia(""));
+    dispatch(setIsPlayMusic());
     return dispatch(setIdSelectedSong(""));
+  }
+};
+export const handleReactAudioPlayer = (audioPlayer, isPlayMusic) => {
+  if (audioPlayer) {
+    if (isPlayMusic) {
+      audioPlayer.play();
+    } else {
+      audioPlayer.pause();
+    }
   }
 };

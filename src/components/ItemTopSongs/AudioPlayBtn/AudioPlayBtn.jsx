@@ -4,7 +4,7 @@ import { idSelectedSongSelector } from "../../../store/selectors";
 import { handlePlayPauseMusic } from "../../../utils/helpers/player";
 import { useDispatch, useSelector } from "react-redux";
 
-const AudioPlay = ({ pathSong, idItem }) => {
+const AudioPlayBtn = ({ pathSong, idItem }) => {
   const dispatch = useDispatch();
   const idSelectedSong = useSelector(idSelectedSongSelector);
   return (
@@ -14,10 +14,10 @@ const AudioPlay = ({ pathSong, idItem }) => {
       }}
     >
       <span>
-        {idSelectedSong === idItem ? <BsPauseFill /> : <BsPlayFill />}{" "}
+        {idSelectedSong === idItem ? <BsPauseFill /> : <BsPlayFill />}
       </span>
     </div>
   );
 };
 
-export default AudioPlay;
+export default AudioPlayBtn;
